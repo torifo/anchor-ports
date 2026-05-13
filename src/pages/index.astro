@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { ports } from "../data/ports";
+
+const severityClass = {
+  critical: "border-danger/80 text-danger shadow-[0_0_24px_rgba(255,61,87,0.25)]",
+  high: "border-gold/70 text-gold shadow-[0_0_20px_rgba(255,198,92,0.18)]",
+  medium: "border-cyan/70 text-cyan shadow-[0_0_20px_rgba(0,210,255,0.18)]",
+};
+---
+
+<BaseLayout title="Anchor Ports | Port Order and Resource Discipline">
+  <main class="chart-grid relative isolate min-h-screen overflow-hidden">
+    <section class="mx-auto grid w-full max-w-7xl gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10 lg:py-14">
+      <div class="relative flex min-h-[520px] flex-col justify-between border-strict bg-panel/70 p-6 shadow-neon backdrop-blur-sm sm:p-8">
+        <div class="absolute right-6 top-6 h-24 w-24 opacity-80">
+          <div class="anchor-mark text-cyan">Anchor</div>
+        </div>
+
+        <div class="max-w-xl">
+          <p class="font-mono text-xs font-bold uppercase tracking-[0.32em] text-cyan">
+            Cyber Nautical Port Ledger
+          </p>
+          <h1 class="mt-8 font-pirata text-6xl leading-none text-mist sm:text-7xl lg:text-8xl">
+            Anchor Ports
+          </h1>
+          <p class="mt-6 max-w-lg font-mono text-sm leading-7 text-mist/78 sm:text-base">
+            ポートは有限の停泊地だ。秩序を乱せば船は衝突し、サービスは沈む。
+            ここでは主要ポートを聖域として扱い、奪った代償を厳格に記録する。
+          </p>
+        </div>
+
+        <div class="reserved-zone mt-10 border-strict p-5">
+          <p class="font-mono text-xs font-bold uppercase tracking-[0.28em] text-gold">
+            Reserved Anchorage
+          </p>
+          <p class="mt-3 font-mono text-sm leading-6 text-mist/75">
+            ハッチングされた海域は予約済みだ。既知の役割を持つ停泊地を勝手に使うな。
+            衝突は偶然ではない。資源管理の怠慢だ。
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-4">
+        {ports.map((port) => (
+          <article class:list={["group relative overflow-hidden border-strict bg-panel/80 p-5 transition duration-200 hover:-translate-y-0.5 hover:shadow-neon", port.severity === "critical" && "reserved-zone"]}>
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <p class="font-mono text-xs uppercase tracking-[0.22em] text-cyan/80">{port.protocol}</p>
+                <h2 class="mt-2 font-pirata text-4xl leading-none text-mist">
+                  {port.number}
+                  <span class="ml-3 font-mono text-base font-bold text-cyan">{port.name}</span>
+                </h2>
+              </div>
+              <span class:list={["border px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.18em]", severityClass[port.severity]]}>
+                {port.severity}
+              </span>
+            </div>
+
+            <div class="mt-5 grid gap-4 md:grid-cols-2">
+              <div>
+                <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-cyan">指定用途 / 聖域</p>
+                <p class="mt-2 font-mono text-sm leading-6 text-mist/80">{port.sanctuary}</p>
+              </div>
+              <div>
+                <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-danger">奪った場合の代償</p>
+                <p class="mt-2 font-mono text-sm leading-6 text-mist/80">{port.cost}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
