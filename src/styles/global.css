@@ -146,7 +146,9 @@
     display: grid;
     gap: 0.35rem;
     padding: 1rem;
+    place-items: center;
     position: relative;
+    text-align: center;
     text-decoration: none;
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -202,7 +204,6 @@
     font-family: var(--font-slate);
     font-size: 0.9rem;
     line-height: 1.7;
-    padding-right: 2rem;
   }
 
   .slate-twin-link__arrow {
@@ -211,6 +212,7 @@
     font-family: var(--font-chalk);
     font-size: 1.4rem;
     position: absolute;
-    right: 1.35rem;
+    right: 50%;
+    transform: translateX(50%);
   }
 }
