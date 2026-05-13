@@ -207,12 +207,10 @@
   }
 
   .slate-twin-link__arrow {
-    bottom: 1.2rem;
     color: var(--color-chalk-amber);
     font-family: var(--font-chalk);
     font-size: 1.4rem;
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
+    line-height: 1;
+    margin-top: 0.15rem;
   }
 }
