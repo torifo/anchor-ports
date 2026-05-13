@@ -13,21 +13,23 @@ const severityClass = {
   <main class="chart-grid relative isolate min-h-screen overflow-hidden">
     <section class="mx-auto grid w-full max-w-7xl gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10 lg:py-14">
       <div class="relative flex min-h-[520px] flex-col justify-between border-strict bg-panel/70 p-6 shadow-neon backdrop-blur-sm sm:p-8">
-        <div class="absolute right-6 top-6 h-24 w-24 opacity-80">
-          <div class="anchor-mark text-cyan">Anchor</div>
-        </div>
+        <div class="grid gap-8 sm:grid-cols-[minmax(0,1fr)_7rem] sm:items-start">
+          <div class="min-w-0 max-w-xl">
+            <p class="font-mono text-xs font-bold uppercase tracking-[0.32em] text-cyan">
+              Cyber Nautical Port Ledger
+            </p>
+            <h1 class="mt-8 text-wrap font-pirata text-6xl leading-none text-mist sm:text-7xl lg:text-8xl">
+              Anchor Ports
+            </h1>
+            <p class="mt-6 max-w-lg font-mono text-sm leading-7 text-mist/78 sm:text-base">
+              ポートは有限の停泊地だ。秩序を乱せば船は衝突し、サービスは沈む。
+              ここでは主要ポートを聖域として扱い、奪った代償を厳格に記録する。
+            </p>
+          </div>
 
-        <div class="max-w-xl">
-          <p class="font-mono text-xs font-bold uppercase tracking-[0.32em] text-cyan">
-            Cyber Nautical Port Ledger
-          </p>
-          <h1 class="mt-8 font-pirata text-6xl leading-none text-mist sm:text-7xl lg:text-8xl">
-            Anchor Ports
-          </h1>
-          <p class="mt-6 max-w-lg font-mono text-sm leading-7 text-mist/78 sm:text-base">
-            ポートは有限の停泊地だ。秩序を乱せば船は衝突し、サービスは沈む。
-            ここでは主要ポートを聖域として扱い、奪った代償を厳格に記録する。
-          </p>
+          <div class="moon-anchor hidden h-28 w-28 shrink-0 justify-self-end opacity-90 sm:block" aria-hidden="true">
+            <div class="anchor-mark">Anchor</div>
+          </div>
         </div>
 
         <div class="reserved-zone mt-10 border-strict p-5">

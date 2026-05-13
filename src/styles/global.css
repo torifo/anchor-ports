@@ -9,10 +9,12 @@
   --color-panel: #06243d;
   --color-cyan: #00d2ff;
   --color-mist: #d9f7ff;
+  --color-moon: #edf8ff;
+  --color-moon-dim: #8ab7c9;
   --color-gold: #ffc65c;
   --color-danger: #ff3d57;
 
-  --shadow-neon: 0 0 0 1px rgb(0 210 255 / 0.38), 0 0 28px rgb(0 210 255 / 0.2);
+  --shadow-neon: 0 0 0 1px rgb(237 248 255 / 0.28), 0 0 34px rgb(138 183 201 / 0.16);
   --shadow-danger: 0 0 0 1px rgb(255 61 87 / 0.42), 0 0 28px rgb(255 61 87 / 0.18);
 }
 
@@ -33,17 +35,18 @@
 @layer utilities {
   .chart-grid {
     background:
-      radial-gradient(circle at 18% 12%, rgb(0 210 255 / 0.18), transparent 26rem),
-      linear-gradient(rgb(0 210 255 / 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(0 210 255 / 0.07) 1px, transparent 1px),
+      radial-gradient(circle at 82% 8%, rgb(237 248 255 / 0.22), transparent 18rem),
+      radial-gradient(circle at 18% 12%, rgb(0 210 255 / 0.1), transparent 26rem),
+      linear-gradient(rgb(138 183 201 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(138 183 201 / 0.08) 1px, transparent 1px),
       linear-gradient(135deg, #001a33 0%, #03101f 58%, #00111f 100%);
-    background-size: auto, 32px 32px, 32px 32px, auto;
+    background-size: auto, auto, 32px 32px, 32px 32px, auto;
   }
 
   .chart-grid::before {
     background:
-      linear-gradient(90deg, transparent 49%, rgb(0 210 255 / 0.16) 50%, transparent 51%),
-      linear-gradient(transparent 49%, rgb(0 210 255 / 0.1) 50%, transparent 51%);
+      linear-gradient(90deg, transparent 49%, rgb(237 248 255 / 0.12) 50%, transparent 51%),
+      linear-gradient(transparent 49%, rgb(138 183 201 / 0.1) 50%, transparent 51%);
     content: "";
     inset: 0;
     mask-image: radial-gradient(circle at center, black, transparent 72%);
@@ -53,8 +56,10 @@
   }
 
   .border-strict {
-    border: 1px solid rgb(0 210 255 / 0.46);
-    box-shadow: inset 0 0 0 1px rgb(217 247 255 / 0.06);
+    border: 1px solid rgb(138 183 201 / 0.52);
+    box-shadow:
+      inset 0 0 0 1px rgb(237 248 255 / 0.06),
+      inset 18px 0 42px rgb(237 248 255 / 0.035);
     clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
   }
 
@@ -76,11 +81,27 @@
     position: relative;
   }
 
+  .moon-anchor {
+    filter: drop-shadow(0 0 18px rgb(237 248 255 / 0.34)) drop-shadow(0 0 42px rgb(138 183 201 / 0.22));
+    position: relative;
+  }
+
+  .moon-anchor::before {
+    background: radial-gradient(circle, rgb(237 248 255 / 0.28), rgb(237 248 255 / 0.08) 38%, transparent 70%);
+    border-radius: 999px;
+    content: "";
+    height: 112px;
+    position: absolute;
+    width: 112px;
+  }
+
   .anchor-mark::before {
     border: 3px solid currentColor;
     border-radius: 999px;
-    box-shadow: 0 0 24px rgb(0 210 255 / 0.9);
-    color: #00d2ff;
+    box-shadow:
+      0 0 18px rgb(237 248 255 / 0.72),
+      inset 0 0 10px rgb(138 183 201 / 0.36);
+    color: #edf8ff;
     content: "";
     height: 24px;
     left: 36px;
@@ -90,11 +111,13 @@
   }
 
   .anchor-mark::after {
-    border-bottom: 4px solid #00d2ff;
-    border-left: 4px solid #00d2ff;
-    border-right: 4px solid #00d2ff;
+    border-bottom: 4px solid #edf8ff;
+    border-left: 4px solid #edf8ff;
+    border-right: 4px solid #edf8ff;
     border-radius: 0 0 48px 48px;
-    box-shadow: 0 0 24px rgb(0 210 255 / 0.8);
+    box-shadow:
+      0 0 20px rgb(237 248 255 / 0.62),
+      0 0 46px rgb(138 183 201 / 0.24);
     content: "";
     height: 70px;
     left: 22px;
